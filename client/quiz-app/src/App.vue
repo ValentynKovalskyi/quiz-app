@@ -1,4 +1,11 @@
+<script>
 
+return {
+  data() {
+    
+  }
+}
+</script>
 <template>
-  Hello World!
+
 </template>

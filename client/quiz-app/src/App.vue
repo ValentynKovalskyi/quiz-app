@@ -1,17 +1,20 @@
 <script>
-import MainButton from './components/buttons/MainButton.vue';
+import StartPage from './views/StartPage.vue';
 
 export default {
   data() {
 
   },
   components: {
-    MainButton
+   StartPage
   }
 }
 </script>
 <template>
-  <MainButton buttonText="Sign Up"></MainButton>
-  <MainButton buttonText="Sign In"></MainButton>
-  hello
+  <StartPage />
 </template>
+<style>
+body {
+  background-color: #40a798;
+}
+</style>

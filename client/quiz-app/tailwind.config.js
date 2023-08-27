@@ -10,8 +10,18 @@ module.exports = {
       'light-blue': '#6da4c2',
       'dark-blue': '#264f63',
       'white': '#dddddd',
+    },   
+    extend: {
+      height: {
+        '1/10': '10%',
+      },
+      maxHeight: {
+        '1/10': '10%',
+      },
+      minHeight: {
+        '1/10': '10%',
+      },
     },
-    extend: {},
   },
   plugins: [],
 }

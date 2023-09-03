@@ -14,7 +14,4 @@ export default {
   <StartPage />
 </template>
 <style>
-body {
-  background-color: #40a798;
-}
 </style>

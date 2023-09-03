@@ -1,23 +1,36 @@
 <script>
-import CommonButton from '../components/buttons/CommonButton.vue'
+import CommonButton from '../components/buttons/CommonButton.vue';
+import NavBar from '../components/pageblocks/NavBar.vue';
+import Footer from '../components/pageblocks/Footer.vue';
 
 export default {
     components: {
-        CommonButton
+        CommonButton, NavBar, Footer,
     },
 }
 </script>
 <template>
-    <div class="flex justify-center flex-col bg-green">
+    <div class="flex justify-center flex-col to-dark-blue from-light-blue bg-gradient-to-r">
+        <NavBar></NavBar>
         <div class="flex justify-center mt-40">
-            <img src="../assets/logo.png" class="w-1/3">
+            <img src="../assets/Quizzer.svg" class="w-1/3">
         </div>
-        <div class="flex flex-col justify-center rounded-xl mt-20 bg-dark-green shadow-lg ml-1/5 mr-1/5 p-5">
-            <p class=" justify-center font-bold">Pass quiz or create a new one</p>
-            <div class="flex flex-row justify-center space-x-6">
+        <div class="flex flex-col justify-center rounded-xl mt-20 bg-dark-green shadow-lg ml-1/5 mr-1/5 p-5 mb-1/10">
+            <div>
+                <p class="font-bold text-2xl text-center m-10 text-white">Pass quizzes, save results and create a new quizzes with account</p>
+            </div>
+            <div class="flex flex-row justify-center space-x-10">
                 <CommonButton>Sign Up</CommonButton> 
                 <CommonButton>Sign In</CommonButton>
             </div>
+            <div>
+                <p class="font-bold text-2xl text-center m-10 text-white"> ... or ...</p>
+                <p class="font-bold text-2xl text-center m-10 text-white">Pass any quiz as a guest</p>
+            </div>
+            <div class="flex justify-center">
+                <CommonButton>Find quiz</CommonButton> 
+            </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>

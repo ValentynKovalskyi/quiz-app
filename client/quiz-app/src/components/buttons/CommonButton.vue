@@ -6,8 +6,8 @@
     }
 </script>
 <template>
-     <button class=" bg-green border-2 shadow-semi-dark shadow-xl transition-all text-white rounded-lg font-sans pr-3 pl-3 pt-1 pb-1
-        hover:bg-semi-dark hover:transition-all hover:shadow-none font-bold">
+     <button class=" bg-green border-2 shadow-semi-dark shadow-xl transition-all text-white rounded-lg font-sans font-bold pr-3 pl-3 pt-1 pb-1
+        hover:bg-dark-green hover:transition-all hover:shadow-none">
             <slot>Hello</slot>
         </button>
-</template>
+</template> 

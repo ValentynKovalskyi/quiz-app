@@ -7,10 +7,15 @@ export default {
     components: {
         CommonButton, NavBar, Footer,
     },
+    methods: {
+        onSignUpClick() {
+            this.$router.push("/signup");
+        },
+    }
 }
 </script>
 <template>
-    <div class="flex justify-center flex-col to-dark-blue from-light-blue bg-gradient-to-r">
+    <div class="flex justify-center flex-col">
         <NavBar></NavBar>
         <div class="flex justify-center mt-40">
             <img src="../assets/Quizzer.svg" class="w-1/3">
@@ -20,7 +25,7 @@ export default {
                 <p class="font-bold text-2xl text-center m-10 text-white">Pass quizzes, save results and create a new quizzes with account</p>
             </div>
             <div class="flex flex-row justify-center space-x-10">
-                <CommonButton>Sign Up</CommonButton> 
+                <CommonButton  @click="onSignUpClick">Sign Up</CommonButton> 
                 <CommonButton>Sign In</CommonButton>
             </div>
             <div>

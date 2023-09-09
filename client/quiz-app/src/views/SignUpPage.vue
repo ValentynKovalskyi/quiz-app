@@ -10,8 +10,9 @@ import * as Password from '../utils/passwordStrength.js';
             email: '',
             password: '',
             passswordConfirmation: '',
-            passwordStrengthMessage: '',
+            passwordStrengthMessage: 'Default',
             passwordStrength: 0,
+            isPasswordInputStarted: false,
         };
     },
     components: { CommonButton, NavBar },
@@ -19,14 +20,29 @@ import * as Password from '../utils/passwordStrength.js';
         submitRegistration() {
             
         },
-        setProgressBarValue(value) {
-            this.$refs.progressBar.style.width = `${value}%`;
+        updateProgressBar(value) {
+            this.$refs.progress.style.width = `${value}%`;
+            this.$refs.progress.style.backgroundColor = 
+            value < 20 ? 'red'
+            : value < 40 ? 'orange'
+            : value < 60 ? 'yellow'
+            : value < 80 ? 'yellowgreen'
+            : value < 100 ? 'darkgreen'
+            : value < 40 ? 'aqua': 'black';
         }
     },
     watch: {
         password() {
+            if (!this.isPasswordInputStarted) {
+                this.isPasswordInputStarted = true;
+                this.$refs.passwordStrengthDiv.style.opacity = "1";
+            }
+            if (this.password == '') {
+                this.$refs.passwordStrengthDiv.style.opacity = "0";
+                this.isPasswordInputStarted = false;
+            }
             let passwordStrength = Password.getPasswordStrength(this.password);
-            this.setProgressBarValue(passwordStrength);
+            this.updateProgressBar( passwordStrength );
             this.passwordStrengthMessage = Password.passwordLevels.get(passwordStrength);
         }
     }
@@ -39,13 +55,13 @@ import * as Password from '../utils/passwordStrength.js';
             <h2 class="font-bold text-white text-center text-xl p-4">Sign Up</h2>
             <input type="text" v-model="username" placeholder="Username" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/10">
             <input type="email" v-model="email" placeholder="E-mail" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/10">
-            <div class="max-h-1/10 flex-col p-1 w-1/1.5 flex">
-                <span class = "m-1 text-sm text-white"> {{ passwordStrengthMessage }}</span>
-                <div class="h-1 w-full bg-white rounded-2xl">
-                    <div ref="progressBar" class="h-1 w-1/2 bg-light-blue rounded-2xl transition-all"></div>
+            <input ref="passwordInput" type="password" v-model="password" placeholder="Password" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/40">
+            <div ref="passwordStrengthDiv" class="max-h-1/20 flex-col w-1/1.5 flex mb-1/40 opacity-0">
+                <span class = "text-xs mb-1/40 text-white font-medium"> {{ passwordStrengthMessage }}</span>
+                <div class="w-full h-1 bg-white rounded-2xl">
+                    <div ref="progress" class="h-full bg-light-blue rounded-2xl transition-all"></div>
                 </div>
             </div>
-            <input type="text" v-model="password" placeholder="Password" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/10">
             <input type="password" v-model="passwordConfirmation" placeholder="Confirm Password" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/10">
             <CommonButton class="w-1/3 self-center text-sm mb-1/10">Sign Up</CommonButton>
         </div>

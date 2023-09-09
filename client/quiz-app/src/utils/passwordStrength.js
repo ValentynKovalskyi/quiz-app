@@ -16,7 +16,6 @@
     let reliability = 0;
 
     let lowerCaseChars = password.match(/[a-z]/gm);
-    console.log(lowerCaseChars);
     if ( lowerCaseChars != null ) {
         reliability += 10;
         if ( lowerCaseChars.length > 2 ) reliability += 10;
@@ -29,7 +28,6 @@
     }
     
     let digits = password.match(/[0-9]/gm);
-    console.log(digits);
     if ( digits != null  ) {
         reliability += 10;
         if ( digits.length > 2 ) reliability += 10;

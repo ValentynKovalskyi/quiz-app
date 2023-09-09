@@ -14,6 +14,5 @@ export default {
   <div class="to-dark-blue from-light-blue bg-gradient-to-r">
     <router-view></router-view>
   </div>
-  
 </template>
 

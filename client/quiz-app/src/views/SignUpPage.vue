@@ -57,7 +57,7 @@ import * as Password from '../utils/passwordStrength.js';
             <input type="email" v-model="email" placeholder="E-mail" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/10">
             <input ref="passwordInput" type="password" v-model="password" placeholder="Password" class="rounded-md shadow-inner shadow-dark text-sm w-1/1.5 p-1 mb-1/40">
             <div ref="passwordStrengthDiv" class="max-h-1/20 flex-col w-1/1.5 flex mb-1/40 opacity-0">
-                <span class = "text-xs mb-1/40 text-white font-medium"> {{ passwordStrengthMessage }}</span>
+                <span class = "text-xs text-white font-medium mb-1/40"> {{ passwordStrengthMessage }}</span>
                 <div class="w-full h-1 bg-white rounded-2xl">
                     <div ref="progress" class="h-full bg-light-blue rounded-2xl transition-all"></div>
                 </div>

@@ -5,4 +5,8 @@ async function query(sql, params) {
     const connection = mysql.createConnection(databaseConfig);
 }
 
+module.exports = {
+    query
+};
+
 
